@@ -61,7 +61,68 @@ CREATE TABLE Solicitud (
     comentarios NVARCHAR(255) NULL
 );
 
+CREATE TABLE Cotizacion (
+	id_cotizacion INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	solicitud_id INT FOREIGN KEY REFERENCES Solicitud(id_solicitud) NOT NULL,
+	descripcion NVARCHAR(255) NOT NULL,
+	agencia NVARCHAR(50) NOT NULL,
+	precio MONEY NOT NULL,
+	moneda NVARCHAR(50) NOT NULL,
+	estado NVARCHAR(50) NOT NULL,
+	destinos_cotizados NVARCHAR(255) NOT NULL,
+	fecha_creacion DATE NOT NULL,
+	fecha_modificacion DATE NOT NULL,
+	fecha_visualizacion DATE NOT NULL
+);
+
+CREATE TABLE Detalle_Cotizacion (
+	id_detalle_cotizacion INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	cotizacion_id INT FOREIGN KEY REFERENCES Cotizacion(id_cotizacion) NOT NULL,
+	destino NVARCHAR(50) NOT NULL,
+	num_dias INT NOT NULL,
+	fecha_visita DATE NOT NULL,
+	latitud DECIMAL(10,10) NOT NULL,
+	longitud DECIMAL(10, 10) NOT NULL
+);
+CREATE TABLE Lugar (
+	id_lugar INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	nombre NVARCHAR(50) NOT NULL,
+	descripcion TEXT NOT NULL,
+	field_name NVARCHAR(50) NOT NULL,
+	latitud DECIMAL(10, 10) NOT NULL,
+	logintud DECIMAL(10, 10) NOT NULL,
+	destino INT FOREIGN KEY REFERENCES Destino(id_destino) NOT NULL,
+	categoria INT FOREIGN KEY REFERENCES Categoria(id_categoria) NOT NULL,
+	actividad INT FOREIGN KEY REFERENCES Actividad(id_actividad) NOT NULL,
+);
+CREATE TABLE Mejor_Lugar (
+	id_mejores_lugares INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	detalle_cotizacion INT FOREIGN KEY REFERENCES Detalle_Cotizacion(id_detalle_cotizacion),
+	lugar INT FOREIGN KEY REFERENCES Lugar(id_lugar),
+	orden INT NOT NULL,
+	principal BIT NOT NULL,
+	descripcion TEXT NOT NULL,
+	cosas_por_hacer TEXT NOT NULL,
+	viajes_secundarios TEXT NOT NULL,
+	fecha_visita DATE NOT NULL,
+	hora_inicio TIME NOT NULL,
+	hora_fin TIME NOT NULL,
+
+);
+
+CREATE TABLE Comprado (
+	id_solicitid INT FOREIGN KEY REFERENCES Solicitud(id_solicitud) NOT NULL,
+	id_cotizacion INT FOREIGN KEY REFERENCES Cotizacion(id_cotizacion) NOT NULL,
+	id_comprado INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+	dias NVARCHAR(50) NOT NULL,
+	descripcion NVARCHAR(255) NOT NULL,
+	detalle NVARCHAR(255) NOT NULL,
+	estado NVARCHAR(50) NOT NULL,
+
+);
 CREATE TABLE Solicitud_Destino (
+
+
     solicitud_id INT NOT NULL,
     destino_id INT NOT NULL,
     PRIMARY KEY (solicitud_id, destino_id),
