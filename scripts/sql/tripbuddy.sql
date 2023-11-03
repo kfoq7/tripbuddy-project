@@ -84,6 +84,7 @@ CREATE TABLE Detalle_Cotizacion (
 	latitud DECIMAL(10,10) NOT NULL,
 	longitud DECIMAL(10, 10) NOT NULL
 );
+
 CREATE TABLE Lugar (
 	id_lugar INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 	nombre NVARCHAR(50) NOT NULL,
@@ -95,6 +96,7 @@ CREATE TABLE Lugar (
 	categoria INT FOREIGN KEY REFERENCES Categoria(id_categoria) NOT NULL,
 	actividad INT FOREIGN KEY REFERENCES Actividad(id_actividad) NOT NULL,
 );
+
 CREATE TABLE Mejor_Lugar (
 	id_mejores_lugares INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 	detalle_cotizacion INT FOREIGN KEY REFERENCES Detalle_Cotizacion(id_detalle_cotizacion),
@@ -107,7 +109,6 @@ CREATE TABLE Mejor_Lugar (
 	fecha_visita DATE NOT NULL,
 	hora_inicio TIME NOT NULL,
 	hora_fin TIME NOT NULL,
-
 );
 
 CREATE TABLE Comprado (
@@ -118,12 +119,10 @@ CREATE TABLE Comprado (
 	descripcion NVARCHAR(255) NOT NULL,
 	detalle NVARCHAR(255) NOT NULL,
 	estado NVARCHAR(50) NOT NULL,
-
 );
+
 CREATE TABLE Solicitud_Destino (
-
-
-    solicitud_id INT NOT NULL,
+   solicitud_id INT NOT NULL,
     destino_id INT NOT NULL,
     PRIMARY KEY (solicitud_id, destino_id),
     FOREIGN KEY (solicitud_id) REFERENCES Solicitud(id_solicitud),
