@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <div
+    class="h-[500px] w-full bg-no-repeat bg-cover bg-center bg-[url(/images/bg-empieza-viaje.png)] flex flex-col items-center justify-center gap-4 font-bold text-center text-4xl text-white"
+  >
+    Unete a nuestra comunidad y planea tu viaje a la medida
+    <a
+      href="/start-journey"
+      class="bg-sky-400 px-[58px] py-2 text-2xl text-center font-light tracking-normal rounded-md cursor-pointer hover:bg-sky-500"
+    >
+      <span class="pointer-events-none">Comienza tu viaje</span>
+    </a>
+  </div>
+  <section class="bg-white pt-8 pb-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col items-center justify-center">
+        <h2 class="text-gray-700 text-3xl font-bold">
+          Crea el viaje de tus sueños en 5 sencillos pasos
+        </h2>
+
+        <div class="flex items-center justify-center gap-6 pt-8">
+          <img src="/images/paso1.png" width={150} />
+          <img src="/images/flecha.png" width={40} />
+          <img src="/images/paso2.png" width={150} />
+          <img src="/images/flecha.png" width={40} />
+          <img src="/images/paso3.png" width={150} />
+          <img src="/images/flecha.png" width={40} />
+          <img src="/images/paso4.png" width={150} />
+          <img src="/images/flecha.png" width={40} />
+          <img src="/images/paso5.png" width={150} />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-gray-50 pt-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-center">
+        <h2 class="text-gray-700 text-3xl font-bold">
+          Viajes de otros Usuarios
+        </h2>
+      </div>
+    </div>
+  </section>
+</Layout>
