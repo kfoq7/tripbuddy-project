@@ -1,41 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import JourneyStepsForm from '../components/JourneyStepsForm'
 ---
 
 <Layout>
   <main
     class="h-[90vh] mx-auto max-w-4xl flex flex-col items-center justify-center gap-6"
   >
-    <section class="flex items-center justify-center gap-10">
-      <div
-        class="w-[475px] h-[550px] p-4 flex flex-col items-center justify-center gap-6 rounded-md border-2 border-gray-400 drop-shadow-md cursor-pointer"
-      >
-        <span class="">
-          <img src="/images/conozco-mi-destino.png" />
-        </span>
-        <h2 class="text-4xl text-center flex-wrap font-bold">
-          CONOZCO MI DESTINO
-        </h2>
-      </div>
-
-      <div
-        class="w-[475px] h-[550px] p-4 flex flex-col items-center justify-center gap-6 rounded-md border-2 border-gray-400 drop-shadow-md cursor-pointer"
-      >
-        <span class="">
-          <img src="/images/quiero-recomendaciones.png" />
-        </span>
-        <h2 class="text-4xl text-center flex-wrap font-bold">
-          CONOZCO MI DESTINOQUIERO RECOMENDACIONES
-        </h2>
-      </div>
-    </section>
-    <div class="mt-4 flex flex-wrap items-center justify-center gap-6">
-      <button class="px-20 py-3 bg-sky-400 rounded-md tracking-tighter">
-        Atras
-      </button>
-      <button class="px-20 py-3 bg-sky-400 rounded-md tracking-tighter">
-        Siguiente
-      </button>
-    </div>
+    <JourneyStepsForm client:visible />
   </main>
 </Layout>
