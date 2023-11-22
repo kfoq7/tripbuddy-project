@@ -1,10 +1,11 @@
 import { Button } from './ui/Button'
 import { useMultistepForm } from '../hooks/useMultistepForm'
 import SelectTrip from './SelectTrip'
+import GetData from './GetData'
 
 export default function JourneyStepsForm() {
   const { step, nextStep, previousStep } = useMultistepForm({
-    steps: [<SelectTrip />, <div>Tow</div>, <div>Tree</div>]
+    steps: [<SelectTrip />, <GetData />, <div>Tree</div>]
   })
 
   return (

@@ -1,7 +1,7 @@
-import { useState, type ReactElement } from 'react'
+import { useState } from 'react'
 
 interface Params {
-  steps: ReactElement[]
+  steps: React.ReactElement[]
 }
 
 export function useMultistepForm({ steps }: Params) {
